@@ -118,9 +118,7 @@ class AnimeGrid {
         );
 
         const copyRightText = [
-            'lab.magiconch.com/anime-grid' + urlExt,
-            '@卜卜口',
-            '神奇海螺试验场',
+            'anime.moe2.eu.org' + urlExt,
             '动画信息来自番组计划',
             '禁止商业、盈利用途'
         ].join(' · ');
@@ -254,9 +252,9 @@ class AnimeGrid {
     generatorHTML({title}){
         return `<canvas></canvas>
 <div class="ctrl-box">
-    <a class="generator-btn ui-btn" action="downloadImage">生成${title}</a>
+    <a class="generator-btn ui-btn" action="downloadImage">点我生成喵！</a>
 </div>
-<div class="search-bangumis-box ui-shadow" data-show="false">
+<div class="search-bangumis-box ui-shadow" data-show="false" action="closeSearchBox">
     <div class="content-box">
         <form>
             <input type="text" placeholder="输入关键词、回车查找动画">
@@ -264,7 +262,7 @@ class AnimeGrid {
         <div class="anime-list"></div>
         <div class="foot">
             <a class="close ui-btn" action="searchFromBangumi">在番组计划搜索</a>
-            <a class="close ui-btn" action="setInputText">没找到，就用搜索框里的文字了</a>
+            <a class="close ui-btn" action="setInputText">使用搜索框中文字</a>
             <a class="close ui-btn" action="setNull">重设为空</a>
             <a class="close ui-btn current" action="closeSearchBox">关闭选框</a>
         </div>
@@ -475,7 +473,7 @@ class AnimeGrid {
     }
     
     downloadImage(){
-        const fileName = `[神奇海螺][${this.title}].jpg`;
+        const fileName = `[${this.title}].jpg`;
         const mime = 'image/jpeg';
         const imgURL = this.canvas.toDataURL(mime,0.8);
         const linkEl = document.createElement('a');
